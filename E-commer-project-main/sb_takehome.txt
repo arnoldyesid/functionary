@@ -1,0 +1,62 @@
+Take Home:
+    This project should be created using docker and docker compose, please include a README file with 
+    necessary instructions to spin-up and run the projects, including any .env file content.
+    For the database you are free to use any relational db but it must be included as a service in the docker compose file.
+    Upload the project to Github and share it with @cope2012 when finished.
+
+    MUSTs:
+        - use "action" decorators from DRF
+
+1- create a Django projects using DRF
+2- create models:
+    - user model:
+        - id
+        - name
+        - email
+        - password
+    - order model:
+        - id
+        - sku (unique)
+        - price (loat value with 2 decimal places)
+        - delivery_date (mm-dd-yyyy)
+        - status (CREATED | DELAYED)
+3- create 4 endpoints:
+    - /api/user/register. it must receive the following data:
+        - full name
+        - email (with simple validation)
+        - password (8 characters min)
+    - /api/user/login. 
+        This endpoint should receive email and password and return a token. You can use djangorestframework-simplejwt for simplicity
+    - /api/order/new.      THIS ENDPOINT IS PROTECTED
+        This endpoint should receive following data to create an order:
+            - name (i.e. ball, cellphone, etc...)
+            - sku (8 char string. must be unique)
+            - price (must be a float value with 2 decimal places)
+            - delivery_date (mm-dd-yyyy)
+        This endpoint should return following datapoints:
+            - id
+    - /api/order/{order_id}   THIS ENDPOINT IS PROTECTED
+        This endpoint should return order info:
+            - id
+            - sku
+            - name
+            - price
+            - delivery_date
+            - status
+4- create a custom management command that runs a celery task that checks for past due orders:
+    - celery task will run on demand (triggered from the management command. ie. python manage.py delayed_orders)
+    - celery task will check of past due orders (past_due = order.delivery_date > current_date)
+    - celery task will update order status to "DELAYED" if past_due is true
+
+
+Points to evaluate:
+    - Documentation
+    - test for basic cases
+    - error handling
+    - code quality
+    - db constrains and query optimization
+    - use of serializers
+
+bonus:
+    - use pipenv, poetry or any other dependency managemet of your choice
+

@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    container_name: ecommerce_container
+    command: tail -f /dev/null
+    #command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8001"
+    volumes:
+      - .:/opt/app
+    working_dir: /opt/app/ecommerce
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+      - celery
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ecommerce_db
+      POSTGRES_USER: ecommerce_user
+      POSTGRES_PASSWORD: password
+
+  celery:
+    build: .
+    command: celery -A config.celery worker --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+      - .:/code
+    working_dir: /opt/app/ecommerce
+
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND =redis://redis:6379/0
+  redis:
+    image: redis:latest
+    ports:
+      - 6379
+volumes:
+  postgres_data:
