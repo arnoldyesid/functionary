@@ -38,8 +38,6 @@ Follow these steps to get the service up and running:
    make check_past_due_orders
     ```
 
-markdown
-Copy code
 ## API Endpoints
 
 ### 📝 Register
