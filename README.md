@@ -53,48 +53,50 @@ Copy code
   "email": "TEST@gmail.com",
   "password": "12345678"
 }
-Response:
+```
+**Response:**
+```json
 {
   "name": "TEST",
   "email": "test@gmail.com"
 }
-🔑 Login
-Endpoint: POST http://{host}:8001/api/user/login
-
-Body:
+```
+### 🔑 Login
+**Endpoint:** `POST http://{host}:8001/api/user/login`
+```json
 {
   "email": "user@gmail.com",
   "password": "12345678"
 }
-Response:
-
+```
+**Response:**
+```json
 {
   "access": "eyJ0e.."
 }
-🛒 Create Order
+```
+### 🛒 Create Order
 Authorization: Bearer token required
-
-Endpoint: POST http://{host}:8001/api/order/new
-
-Body:
-
+**Endpoint:** `POST http://{host}:8001/api/order/new`
+```json
 {
   "sku": "2922511",
   "name": "cellphone",
   "price": 2323.21,
   "delivery_date": "01-01-2024"
 }
-Response:
+```
+**Response:**
+```json
 {
   "id": 15
 }
-
-📦 Get Order
+```
+### 📦 Get Order
 Authorization: Bearer token required
-Endpoint: GET http://{host}:8001/api/order/15
-
-Response:
-
+**Endpoint:** `GET http://{host}:8001/api/order/{id}`
+**Response:**
+```json
 {
   "id": 10,
   "sku": "11222511",
@@ -103,3 +105,4 @@ Response:
   "delivery_date": "01-01-2024",
   "status": "DELAYED"
 }
+```
