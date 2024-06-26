@@ -4,8 +4,8 @@ services:
   web:
     build: .
     container_name: ecommerce_container
-    command: tail -f /dev/null
-    #command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8001"
+    #command: tail -f /dev/null
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8001"
     volumes:
       - .:/opt/app
     working_dir: /opt/app/ecommerce

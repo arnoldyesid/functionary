@@ -53,7 +53,7 @@ class OrderAPITestCase(TestCase):
             'name': 'Test Product',
             'sku': 'SKU12345',
             'price': '99.99',
-            'delivery_date': '2024-06-30'
+            'delivery_date': '01-01-2024'
         }
         response = self.client.post(url, order_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -66,7 +66,7 @@ class OrderAPITestCase(TestCase):
             'name': 'Test Product',
             'sku': 'SKU12348',
             'price': '99.99',
-            'delivery_date': '2024-06-30'
+            'delivery_date': '01-01-2024'
         }
         response = self.client.post(url, order_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
