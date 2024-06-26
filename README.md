@@ -28,53 +28,73 @@ Follow these steps to get the service up and running:
    make build
    make test
    make check_past_due_orders
+    ```
 
-📝 Register
-Endpoint: POST http://{host}:8001/api/user/register
-Body:
+1. **Navigate to the project directory:**
+   ```bash
+   cd E-commer-project-main
+   make build
+   make test
+   make check_past_due_orders
+    ```
+
+markdown
+Copy code
+## API Endpoints
+
+### 📝 Register
+
+**Endpoint:** `POST http://{host}:8001/api/user/register`
+
+**Body:**
+```json
 {
-  "name": "Arnold", 
-  "email": "ar12no21ldw.blandon3@gmail.com",
+  "name": "Arnold",
+  "email": "TEST@gmail.com",
   "password": "12345678"
 }
-
 Response:
 {
   "name": "TEST",
   "email": "test@gmail.com"
 }
-
 🔑 Login
 Endpoint: POST http://{host}:8001/api/user/login
+
 Body:
 {
   "email": "user@gmail.com",
   "password": "12345678"
 }
 Response:
+
 {
   "access": "eyJ0e.."
 }
-
 🛒 Create Order
 Authorization: Bearer token required
+
 Endpoint: POST http://{host}:8001/api/order/new
+
 Body:
+
 {
   "sku": "2922511",
   "name": "cellphone",
   "price": 2323.21,
   "delivery_date": "01-01-2024"
 }
-
 Response:
 {
   "id": 15
 }
+
 📦 Get Order
 Authorization: Bearer token required
 Endpoint: GET http://{host}:8001/api/order/15
+
 Response:
+
 {
   "id": 10,
   "sku": "11222511",
