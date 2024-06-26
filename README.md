@@ -75,8 +75,7 @@ Copy code
   "access": "eyJ0e.."
 }
 ```
-### 🛒 Create Order
-Authorization: Bearer token required
+### 🛒 Create Order [Authorization: Bearer token required]
 **Endpoint:** `POST http://{host}:8001/api/order/new`
 ```json
 {
@@ -92,8 +91,7 @@ Authorization: Bearer token required
   "id": 15
 }
 ```
-### 📦 Get Order
-Authorization: Bearer token required
+### 📦 Get Order [Authorization: Bearer token required]
 **Endpoint:** `GET http://{host}:8001/api/order/{id}`
 **Response:**
 ```json
