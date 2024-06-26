@@ -1,16 +1,21 @@
 # functionary
 #Requirments 
-Docker version 24.0.2 and make
+- Docker version 24.0.2
+- make
 
 # Run service
 1- cd E-commer-project-main
-2[Run buld and services] make build
-3 [Run test] make test
-4 [Run due orders] make check_past_due_orders
+2 -[Run buld and services] make build
+After point 2 you can use the enpoints 
+
+3 -[Run test] make test
+4 - [Run check due orders] make check_past_due_orders
 
 # Endpoints
 
 # Register
+{{host}} by default: localhost
+
 curl --location --request POST '{{host}}:8001/api/user/register' \
 --header 'Content-Type: application/json' \
 --data-raw '{
