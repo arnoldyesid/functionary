@@ -30,14 +30,6 @@ Follow these steps to get the service up and running:
    make check_past_due_orders
     ```
 
-1. **Navigate to the project directory:**
-   ```bash
-   cd E-commer-project-main
-   make build
-   make test
-   make check_past_due_orders
-    ```
-
 ## API Endpoints
 
 ### 📝 Register
