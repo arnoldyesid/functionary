@@ -12,47 +12,46 @@ After point 2 you can use the enpoints
 4 - [Run check due orders] make check_past_due_orders
 
 # Endpoints
-
+--------------------------------------------------------------------
 # Register
 {{host}} by default: localhost
+POST: http://localhost:8001/api/user/register
 
-curl --location --request POST '{{host}}:8001/api/user/register' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "test", 
-    "email":"test@gmail.com",
+body:
+{
+    "name": "Arnold", 
+    "email":"ar12no21ldw.blandon3@gmail.com",
     "password":"12345678"
-}'
+}
+
 Response:
 {
-    "name": "Arnold",
+    "name": "TEST",
     "email": "test@gmail.com"
 }
 --------------------------------------------------------------------
-
 # Login
-curl --location --request POST '{{host}}:8001/api/user/login' \
---header 'Content-Type: application/json' \
---data-raw '{
+POST: http://localhost:8001/api/user/login
+Body:
+{
     "email":"user@gmail.com",
     "password":"12345678"
-}'
+}
 Response:
 {
     "access": "eyJ0e.."
 }
 --------------------------------------------------------------------
-
 # Create Order 
-curl --location --request POST '{{host}}:8001/api/order/new' \
---header 'Authorization: Bearer eyJ.... \
---header 'Content-Type: application/json' \
---data-raw '{
-    "sku": "1922511",
+Required:  Authorization: Bearer 
+POST: http://localhost:8001/api/order/new
+body
+{
+    "sku": "2922511",
     "name": "cellphone",
     "price": 2323.21,
     "delivery_date": "01-01-2024"
-}'
+}
 # Response 
 {
     "id": 15
@@ -60,9 +59,8 @@ curl --location --request POST '{{host}}:8001/api/order/new' \
 --------------------------------------------------------------------
 
 # Get order 
-curl --location --request GET '{{host}}:8001/api/order/{order_id}' \
---header 'Authorization: Bearer eyJ0e...
-
+Required:  Authorization: Bearer 
+GET: http://localhost:8001/api/order/15
 # Response 
 {
     "id": 10,
