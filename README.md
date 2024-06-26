@@ -1,72 +1,85 @@
-# functionary
-#Requirments 
-- Docker version 24.0.2
-- make
+# 📦 Functionary
 
-# Run service
-1- cd E-commer-project-main
-2 -[Run buld and services] make build
-After point 2 you can use the enpoints 
+![Docker](https://img.shields.io/badge/Docker-v24.0.2-blue) ![Make](https://img.shields.io/badge/Makefile-Ready-green)
 
-3 -[Run test] make test
-4 - [Run check due orders] make check_past_due_orders
+Functionary is an e-commerce backend service that allows users to register, log in, create orders, and check order statuses. This project leverages Docker for containerization and `make` for managing build and service commands.
 
-# Endpoints
-{host} by default: localhost
---------------------------------------------------------------------
-# Register
-POST: http://{host}:8001/api/user/register
+## 🚀 Features
 
-body:
-{
-    "name": "Arnold", 
-    "email":"ar12no21ldw.blandon3@gmail.com",
-    "password":"12345678"
-}
+- User registration and authentication
+- Order creation and management
+- Endpoint for checking past due orders
+- Easy-to-deploy Docker environment
 
-Response:
-{
-    "name": "TEST",
-    "email": "test@gmail.com"
-}
---------------------------------------------------------------------
-# Login
-POST: http://{host}:8001/api/user/login
+## 🛠 Requirements
+
+Before running the service, ensure you have the following installed:
+
+- **Docker** (version 24.0.2 or higher)
+- **Make**
+
+## 🏃‍♂️ Quick Start
+
+Follow these steps to get the service up and running:
+
+1. **Navigate to the project directory:**
+   ```bash
+   cd E-commer-project-main
+   make build
+   make test
+   make check_past_due_orders
+
+📝 Register
+Endpoint: POST http://{host}:8001/api/user/register
 Body:
 {
-    "email":"user@gmail.com",
-    "password":"12345678"
+  "name": "Arnold", 
+  "email": "ar12no21ldw.blandon3@gmail.com",
+  "password": "12345678"
+}
+
+Response:
+{
+  "name": "TEST",
+  "email": "test@gmail.com"
+}
+
+🔑 Login
+Endpoint: POST http://{host}:8001/api/user/login
+Body:
+{
+  "email": "user@gmail.com",
+  "password": "12345678"
 }
 Response:
 {
-    "access": "eyJ0e.."
+  "access": "eyJ0e.."
 }
---------------------------------------------------------------------
-# Create Order 
-Required:  Authorization: Bearer 
-POST: http://{host}:8001/api/order/new
-body
-{
-    "sku": "2922511",
-    "name": "cellphone",
-    "price": 2323.21,
-    "delivery_date": "01-01-2024"
-}
-# Response 
-{
-    "id": 15
-}
---------------------------------------------------------------------
 
-# Get order 
-Required:  Authorization: Bearer 
-GET: http://{host}:8001/api/order/15
-# Response 
+🛒 Create Order
+Authorization: Bearer token required
+Endpoint: POST http://{host}:8001/api/order/new
+Body:
 {
-    "id": 10,
-    "sku": "11222511",
-    "name": "cellphone",
-    "price": "2323.21",
-    "delivery_date": "01-01-2024",
-    "status": "DELAYED"
+  "sku": "2922511",
+  "name": "cellphone",
+  "price": 2323.21,
+  "delivery_date": "01-01-2024"
+}
+
+Response:
+{
+  "id": 15
+}
+📦 Get Order
+Authorization: Bearer token required
+Endpoint: GET http://{host}:8001/api/order/15
+Response:
+{
+  "id": 10,
+  "sku": "11222511",
+  "name": "cellphone",
+  "price": "2323.21",
+  "delivery_date": "01-01-2024",
+  "status": "DELAYED"
 }
