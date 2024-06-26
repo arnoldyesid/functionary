@@ -12,10 +12,10 @@ After point 2 you can use the enpoints
 4 - [Run check due orders] make check_past_due_orders
 
 # Endpoints
+{host} by default: localhost
 --------------------------------------------------------------------
 # Register
-{{host}} by default: localhost
-POST: http://localhost:8001/api/user/register
+POST: http://{host}:8001/api/user/register
 
 body:
 {
@@ -31,7 +31,7 @@ Response:
 }
 --------------------------------------------------------------------
 # Login
-POST: http://localhost:8001/api/user/login
+POST: http://{host}:8001/api/user/login
 Body:
 {
     "email":"user@gmail.com",
@@ -44,7 +44,7 @@ Response:
 --------------------------------------------------------------------
 # Create Order 
 Required:  Authorization: Bearer 
-POST: http://localhost:8001/api/order/new
+POST: http://{host}:8001/api/order/new
 body
 {
     "sku": "2922511",
@@ -60,7 +60,7 @@ body
 
 # Get order 
 Required:  Authorization: Bearer 
-GET: http://localhost:8001/api/order/15
+GET: http://{host}:8001/api/order/15
 # Response 
 {
     "id": 10,
